@@ -9,4 +9,5 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
+ENV JENKINS_UC_DOWNLOAD_URL=https://ftp-nyc.osuosl.org/pub/jenkins/plugins
 RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
